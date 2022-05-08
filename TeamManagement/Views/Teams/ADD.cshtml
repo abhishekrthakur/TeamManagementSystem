@@ -1,0 +1,26 @@
+﻿@model TeamManagement.Models.Team
+@{
+    ViewData["Title"] = "UpdateMember";
+}
+ <form asp-action="UpdateMember">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" name="Id" value="@ViewBag.Id" />
+        <div class="form-group">
+            @*<p>Team</p>*@
+            <label asp-for="TeamName">@ViewBag.Team</label>
+            @*<span>@ViewBag.Team</span>*@
+        </div>
+        <div class="form-group">
+            <p>Member:</p>
+            <select asp-for="MemberId" asp-items="@(new SelectList(ViewBag.Member,"MemberId","Name"))" style="padding-top: 8px;padding-left: 14px;padding-bottom: 6px;padding-right:7px;"></select><br /><br />
+        </div>
+
+        <div class="form-group">
+            <p>Role:</p>
+            <select asp-for="RoleId" asp-items="@(new SelectList(ViewBag.Role,"RoleId","RoleName"))" style="padding-top: 8px;padding-left: 14px;padding-bottom: 6px;padding-right:7px;"></select><br /><br />
+        </div>
+      
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-primary" />@*onclick="@("window.location.href='"+ @Url.Action("UpdateMember","Teams", new { id = Model.Id,roleid=Model.RoleId,memberid=Model.MemberId }) +"'");"/>*@
+        </div>
+</form>
