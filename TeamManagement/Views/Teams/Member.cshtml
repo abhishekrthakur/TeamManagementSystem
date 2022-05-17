@@ -14,15 +14,15 @@
         <input type="button" class="button" value="ADD" onclick="@("window.location.href='"+ @Url.Action("ADD","Teams", new { id = TeamId }) +"'");" />
     </div>
  
-
+    <h3>@Model.FirstOrDefault().TeamName</h3>
 
 
 <table class="table">
     <thead>
         <tr>
-            <th>
+           @* <th>
                 @Html.DisplayNameFor(model => model.TeamName)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.MemberName)
             </th>
@@ -37,9 +37,9 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.TeamName)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.MemberName)
             </td>
@@ -55,80 +55,6 @@
 </table>
 
 
-@* <table class="table">
-    <thead>
-    <tr>
-    <th>
-    @Html.DisplayNameFor(model => model.Name)
-    </th>
-    <th>
-    @Html.DisplayNameFor(model => model.Gender)
-    </th>
-    <th>
-    @Html.DisplayNameFor(model => model.DOB)
-    </th>
-    <th>
-    @Html.DisplayNameFor(model => model.MaritalStatus)
-    </th>
-    <th>
-    @Html.DisplayNameFor(model => model.Address)
-    </th>
-    <th>
-    @Html.DisplayNameFor(model => model.PhoneNo)
-    </th>
-    <th>
-    @Html.DisplayNameFor(model => model.Skills)
-    </th>
-    <th>
-    @Html.DisplayNameFor(model => model.Hobbies)
-    </th>
-    <th>
-    @Html.DisplayNameFor(model => model.JobTitle)
-    </th>
-    <th>
-    @Html.DisplayNameFor(model => model.Technology)
-    </th>
-    <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach (var item in Model) {
-    <tr>
-    <td>
-    @Html.DisplayFor(modelItem => item.Name)
-    </td>
-    <td>
-    @Html.DisplayFor(modelItem => item.Gender)
-    </td>
-    <td>
-    @Html.DisplayFor(modelItem => item.DOB)
-    </td>
-    <td>
-    @Html.DisplayFor(modelItem => item.MaritalStatus)
-    </td>
-    <td>
-    @Html.DisplayFor(modelItem => item.Address)
-    </td>
-    <td>
-    @Html.DisplayFor(modelItem => item.PhoneNo)
-    </td>
-    <td>
-    @Html.DisplayFor(modelItem => item.Skills)
-    </td>
-    <td>
-    @Html.DisplayFor(modelItem => item.Hobbies)
-    </td>
-    <td>
-    @Html.DisplayFor(modelItem => item.JobTitle)
-    </td>
-    <td>
-    @Html.DisplayFor(modelItem => item.Technology)
-    </td>
-
-    </tr>
-    }
-    </tbody>
-    </table>*@
 
 
 

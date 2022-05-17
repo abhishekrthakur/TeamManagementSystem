@@ -15,7 +15,7 @@ namespace TeamManagement.Controllers
 {
     public class TeamsController : Controller
     {
-        private readonly TeamManagementContext _context;
+          private readonly TeamManagementContext _context;
 
         public TeamsController(TeamManagementContext context)
         {
@@ -84,15 +84,26 @@ namespace TeamManagement.Controllers
                          join r in _context.Role on n.RoleId equals r.RoleId
                          select new TeamMemberRole
                          {
-                             Id = n.Id,
+                             Id = n.TeamId,
                              TeamName = _context.Team.Where(x=>x.Id == n.TeamId).FirstOrDefault().TeamName,
                              MemberName = m.Name,
                              RoleName = r.RoleName,
                          };
 
+            if (result.Count()==0)
+            {
+                var teamMember = from n in _context.Team.Where(x => x.Id == Id)
+                                 select new TeamMemberRole
+                                 {
+                                     Id = n.Id
 
-
-            return View(result);
+                                 };
+                return View("ErrorView", teamMember);
+            }
+            else
+            {
+                return View(result);
+            }
 
         }
 

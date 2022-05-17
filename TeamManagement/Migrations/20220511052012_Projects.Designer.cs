@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TeamManagement.Data;
 
@@ -11,9 +12,10 @@ using TeamManagement.Data;
 namespace TeamManagement.Migrations
 {
     [DbContext(typeof(TeamManagementContext))]
-    partial class TeamManagementContextModelSnapshot : ModelSnapshot
+    [Migration("20220511052012_Projects")]
+    partial class Projects
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

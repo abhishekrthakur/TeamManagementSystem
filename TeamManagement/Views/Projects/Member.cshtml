@@ -1,0 +1,25 @@
+﻿@model IEnumerable<TeamManagement.Models.Projects>
+
+@{
+    ViewData["Title"] = "Member";
+    
+
+}
+
+<h1>Member</h1>
+
+<h4>Team</h4>
+
+    <div>
+        <input type="button" class="button" value="ADD" onclick="location.href='@Url.Action("ADD", "Projects")'" />
+    </div>
+
+
+
+
+
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+}

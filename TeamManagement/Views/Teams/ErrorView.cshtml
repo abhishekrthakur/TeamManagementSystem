@@ -1,0 +1,30 @@
+﻿@model IEnumerable<TeamManagement.Models.dto.TeamMemberRole>
+
+@{
+    ViewData["Title"] = "ErrorView";
+    var TeamId = Model.FirstOrDefault().Id;
+
+}
+
+<h1>Member</h1>
+
+<h4>Team</h4>
+
+    <div>
+        <input type="button" class="button" value="ADD" onclick="@("window.location.href='"+ @Url.Action("ADD","Teams", new { id = TeamId }) +"'");" />
+    </div>
+ 
+
+
+<p>No Member Allocated In This Team</p>
+
+
+
+
+
+
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+}

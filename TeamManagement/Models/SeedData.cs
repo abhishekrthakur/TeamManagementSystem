@@ -13,33 +13,35 @@ namespace TeamManagement.Models
                     DbContextOptions<TeamManagementContext>>()))
             {
                 // Look for any movies.
-                if (context.Role.Any())
+                if (context.Projects.Any())
                 {
                     return;   // DB has been seeded
                 }
 
-                context.Role.AddRange(
-                    new Role
+                context.Projects.AddRange(
+                    new Projects
                     {
-                     RoleName = "Developer"
+                     ProjectName = "Project1",
+                     Description = "This is Description",
+                     StartDate = DateTime.Parse("01-05-2001"),
+                     EndDate  = DateTime.Parse("15-05-2005"),
+                     ProjectHead = "JatinderKumar",
+                     Status = "Pending",
+                     Technology = ".Net"
                     },
 
-                     new Role
+                     new Projects
                      {
-                       RoleName = "Testing", 
-                     },
+                         ProjectName = "Project2",
+                         Description = "This is Description",
+                         StartDate = DateTime.Parse("27-12-1991"),
+                         EndDate = DateTime.Parse("15-05-1997"),
+                         ProjectHead = "JatinderKumar",
+                         Status = "Completed",
+                         Technology = "PHP"
+                     }
 
-
-                    new Role
-                    {
-                        RoleName = "Senior Developer"
-                    },
-
-
-                    new Role
-                    {
-                        RoleName = "System Designer"
-                    }
+                    
                 );
                 context.SaveChanges();
             }

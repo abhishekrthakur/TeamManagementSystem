@@ -28,4 +28,6 @@ public class TeamManagementContext : IdentityDbContext<TeamManagementUser>
 
     public DbSet<TeamManagement.Models.NewMembers> NewMembers { get; set; }
 
+    public DbSet<TeamManagement.Models.Projects>? Projects { get; set; }
+
 }
